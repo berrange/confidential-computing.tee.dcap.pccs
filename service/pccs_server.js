@@ -130,8 +130,8 @@ function startHttpsServer() {
     let privateKey;
     let certificate;
     try {
-        privateKey = fs.readFileSync('./ssl_key/private.pem', 'utf8');
-        certificate = fs.readFileSync('./ssl_key/file.crt', 'utf8');
+        privateKey = fs.readFileSync('/etc/pccs/ssl/server-key.pem', 'utf8');
+        certificate = fs.readFileSync('/etc/pccs/ssl/server-cert.pem', 'utf8');
     } catch {
         logger.error('The private key or certificate for HTTPS server is missing.');
         logger.endAndExitProcess();
