@@ -84,8 +84,8 @@ async function test_db_status() {
 }
 
 async function db_migration() {
-  const migrations = fs.readdirSync('./migrations').map(name => {
-    const path = `./migrations/${name}`;
+  const migrations = fs.readdirSync('/usr/lib/node_modules/pccs/migrations').map(name => {
+    const path = `/usr/lib/node_modules/pccs/migrations/${name}`;
 
     return {
       name,
@@ -126,7 +126,7 @@ async function db_migration() {
   
   const umzug = new Umzug({
     migrations: {
-      glob: './migrations/*.{js,up.sql}',
+      glob: '/usr/lib/node_modules/pccs/migrations/*.{js,up.sql}',
       resolve: ({ name }) => {
         const migration = migrations.find(migration => migration.name === name);
         logger.debug(`Resolving migration: ${name}, found: ${migration ? migration.name : 'none'}`);
