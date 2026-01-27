@@ -26,5 +26,8 @@
   },
   "scripts": {
     "start": "node pccs_server.js"
+  },
+  "overrides": {
+    "tar": "^7.0.0"
   }
 }
